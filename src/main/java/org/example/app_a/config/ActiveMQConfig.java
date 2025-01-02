@@ -48,6 +48,11 @@ public class ActiveMQConfig {
         dataSource.setUrl(dbUrl);
         dataSource.setUsername(dbUsername);
         dataSource.setPassword(dbPassword);
+
+        // Set eviction settings
+        dataSource.setTimeBetweenEvictionRunsMillis(5000);  // Duration between eviction runs (in ms)
+        dataSource.setMinEvictableIdleTimeMillis(60000);    // Min time a connection can stay idle before eviction
+
         return dataSource;
     }
 }
